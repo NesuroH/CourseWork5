@@ -8,10 +8,10 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 
 def main():
-    dbname = "course"
-    user = "postgres"
-    password = "nesuroHaki07"
-    host = "localhost"
+    dbname = input("dbname: \n")
+    user = input("user: \n")
+    password = input("password: \n")
+    host = input("host: \n")
 
     create_database(dbname, user, password, host)
     create_tables(dbname, user, password, host)
