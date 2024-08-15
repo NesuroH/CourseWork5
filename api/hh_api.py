@@ -2,10 +2,26 @@ import requests
 
 
 class HHAPI:
+    """
+    Класс для взаимодействия с API HeadHunter (hh.ru).
+
+    Атрибуты:
+        BASE_URL (str): Базовый URL для API HeadHunter.
+    """
+
     BASE_URL = "https://api.hh.ru"
 
     @staticmethod
     def get_employers_data(employer_ids):
+        """
+        Получает данные о работодателях по их идентификаторам.
+
+        Параметры:
+            employer_ids (list): Список идентификаторов работодателей.
+
+        Возвращает:
+            list: Список данных о работодателях в формате JSON.
+        """
         employers_data = []
         for employer_id in employer_ids:
             response = requests.get(f'{HHAPI.BASE_URL}/employers/{employer_id}')
@@ -16,6 +32,15 @@ class HHAPI:
 
     @staticmethod
     def get_vacancies_data(employer_id):
+        """
+        Получает данные о вакансиях для заданного работодателя.
+
+        Параметры:
+            employer_id (str): Идентификатор работодателя.
+
+        Возвращает:
+            list: Список данных о вакансиях в формате JSON.
+        """
         vacancies_data = []
         page = 0
         while True:

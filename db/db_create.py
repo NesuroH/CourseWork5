@@ -2,6 +2,9 @@ import psycopg2
 
 
 def create_database(dbname: str, user: str, password: str, host: str):
+    """
+    Создает базу данных
+    """
     conn = psycopg2.connect(dbname='postgres', user=user, password=password, host=host)
     conn.autocommit = True
     with conn.cursor() as cur:
@@ -11,6 +14,9 @@ def create_database(dbname: str, user: str, password: str, host: str):
 
 
 def create_tables(dbname: str, user: str, password: str, host: str):
+    """
+    Задает параметры для создания таблиц
+    """
     conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host)
     conn.autocommit = True
     with conn.cursor() as cur:
